@@ -37,15 +37,31 @@ const displayPlayerData = (data) => {
         <h5 class="card-title">${strPlayer}</h5>
         <p class="card-text">Nationality : ${strNationality}</p>
         <btn onclick="singlePlayer('${idPlayer}')" class='btn btn-primary'>Details</btn>
-        <btn onclick="removePlayer();" class='btn btn-danger'>Remove</btn>
+        <btn class='remove-player btn btn-danger'>Remove</btn>
     </div>
     </div>
     `
     card.appendChild(div);
 
+  
+
     })  
- 
+    const elements = document.getElementsByClassName('remove-player');
+    
+    for (const element of elements) {
+      element.addEventListener('click', (e) => {
+        console.log(e.target.parentNode.parentNode.style.display = 'none');
+      })
+    }
+
 }
+
+
+  
+
+  
+  
+  
 
 const singlePlayer = (idPlayer) => {
     const url = `https://www.thesportsdb.com/api/v1/json/3/lookupplayer.php?id=${idPlayer}`;
@@ -93,7 +109,16 @@ const displayPlayerFullData = (data) => {
   </div>
     `
     container.appendChild(div);
+
+
+
+
 }
+
+
+
+
+  
 
 
 loadPlayerData('messi');
